@@ -1,2 +1,2 @@
 # ducle-duck.github.io
-My personal website
+learning GitHub is fun.
