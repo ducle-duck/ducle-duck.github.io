@@ -1,11 +1,11 @@
 body {
-    background-color: #ffffff;
+    background-color: #eadada;
     margin: 0;
     padding: 0;
 }
 
 nav ul {
-    background-color: rgb(248, 165, 165);
+    background-color: rgb(236, 180, 180);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -17,21 +17,20 @@ nav ul li {
     font-size: 20px;
     line-height: 40px;
 }
+
+nav ul li a { color:white; text-decoration: none;}
+nav ul li a:hover {color: rgb(42, 31, 31);}
+
 header h1{
    text-align: center;
 }
 article header p{ font-style: italic;}
 main{padding-left: 20px;}
 
-.my-list img {
-    width: 220px; 
-    height: 250px; 
-    border-image-source: 50%;
-    display: block;
+main article { border:  5px solid rgb(220, 173, 201); margin: 10px; padding: 10px;}
 
-}
 main article {
-    background: rgb(248, 165, 165);
+    background: rgb(195, 179, 179);
     margin: 10px;
     padding: 5px;
     
@@ -43,3 +42,10 @@ nav a {
 
 
 .Profile{display: flex;justify-content: flex-end;}
+
+.my-list img 
+{width: 150px; 
+    height: 150px; 
+    border-radius: 80%; 
+    display: block; 
+    margin: 0 auto 30px;}
