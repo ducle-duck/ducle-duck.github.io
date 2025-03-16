@@ -1,19 +1,19 @@
-.my-list {
-    margin: 0 auto;
-    padding: 8px 24px;
-    width: 500px;
-    font-size:30px;
-    border: 1px solid #4e3636;
-    background: #73716b;
-    box-shadow:00 10px2px#6d3838;}
-    .my-list ol {
-        margin: 12px;}
-        .my-list p 
-        {text-align: center;}
+    .my-list {
+        margin: 0 auto;
+        padding: 8px 24px;
+        width: 500px;
+        font-size:30px;
+        border: 1px solid #4e3636;
+        background: #73716b;
+        box-shadow:00 10px2px#6d3838;}
+        .my-list ol {
+            margin: 12px;}
+            .my-list p 
+            {text-align: center;}
 
-        .my-list img 
-        {width: 150px; 
-            height: 150px; 
-            border-radius: 80%; 
-            display: block; 
-            margin: 0 auto 30px;}
+            .my-list img 
+            {width: 150px; 
+                height: 150px; 
+                border-radius: 80%; 
+                display: block; 
+                margin: 0 auto 30px;}
