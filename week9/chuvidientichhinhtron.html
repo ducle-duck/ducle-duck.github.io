@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Calculator</title>
+    <script language="javascript">
+        function calculate() {
+            var radius = document.frmCircle.txtRadius.value;
+            var pi = 3.14;
+
+            if (radius == "" || isNaN(radius) || radius <= 0) {
+                alert("Bán kính là một số dương");
+            } else {
+                radius = parseFloat(radius);
+                var perimeter = 2 * pi * radius;
+                var area = pi * radius * radius;
+                document.frmCircle.txtPerimeter.value = perimeter;
+                document.frmCircle.txtArea.value = area;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="frmCircle">
+        <table border="0" align="center">
+            <tr>
+                <td colspan="2" align="center"><h2>Chu vi diện tích hình tròn</h2></td>
+            </tr>
+            <tr>
+                <td align="right">Bán kính:</td>
+                <td><input type="text" name="txtRadius" /></td>
+            </tr>
+            <tr>
+                <td align="right">Chu vi:</td>
+                <td><input type="text" name="txtPerimeter" readonly /></td>
+            </tr>
+            <tr>
+                <td align="right">Diện tích:</td>
+                <td><input type="text" name="txtArea" readonly /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Calculate" onClick="calculate()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

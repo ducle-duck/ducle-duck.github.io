@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Calculator</title>
+</head>
+<body>
+    <form name="frmRect">
+        <table border="0" align="center">
+            <tr>
+                <td colspan="2" align="center"><h2>Chu vi diện tích hình chữ nhật</h2></td>
+            </tr>
+            <tr>
+                <td align="right">Chiều dài:</td>
+                <td><input type="text" name="txtLength" /></td>
+            </tr>
+            <tr>
+                <td align="right">Chiều rộng:</td>
+                <td><input type="text" name="txtWidth" /></td>
+            </tr>
+            <tr>
+                <td align="right">Chu vi:</td>
+                <td><input type="text" name="txtPerimeter" readonly /></td>
+            </tr>
+            <tr>
+                <td align="right">Diện tích:</td>
+                <td><input type="text" name="txtArea" readonly /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Tính" onClick="calculate()">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script language="javascript">
+        function calculate() {
+            var length = document.frmRect.txtLength.value;
+            var width = document.frmRect.txtWidth.value;
+
+            if (length == "" || isNaN(length) || length <= 0 || width == "" || isNaN(width) || width <= 0) {
+                alert("Chiều dài và chiều rộng là một số lớn hơn 0");
+            } else {
+                length = parseFloat(length);
+                width = parseFloat(width);
+                var perimeter = 2 * (length + width);
+                var area = length * width;
+                document.frmRect.txtPerimeter.value = perimeter;
+                document.frmRect.txtArea.value = area;
+            }
+        }
+    </script>
+</body>
+</html>

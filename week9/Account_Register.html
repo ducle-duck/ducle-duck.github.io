@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Register new account</title>
+    <style type="text/css">
+        .label {
+            width: 150px;
+            padding-right: 5px;
+            text-align: right;
+            font-style: italic;
+        }
+        
+        .textbox {
+            width: 230px;
+            border: 1px solid #777777;
+        }
+        
+        .textbox:hover {
+            border: 1px solid #ff0000;
+        }
+        
+        .textbox:focus {
+            border: 1px solid #ff0000;
+            background-color: ffffaa;
+        }
+        
+        .header {
+            background-color: #006699;
+            color: #FFFFFF;
+            font-weight: bold;
+            text-align: center;
+            padding: 2px;
+        }
+        
+        .button {
+            border: 1px solid #777777;
+            width: 70px;
+        }
+        
+        .button:hover {
+            border: 1px outset #777777;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form name="frmRegister" method="get" onsubmit="return formValid();">
+        <table border="0" align="center" cellpadding="0" cellspacing="1">
+            <tr>
+                <td colspan="2" class="header">REGISTER NEW ACCOUNT</td>
+            </tr>
+            <tr>
+                <td class="label">Username</td>
+                <td><input name="txtUsername" type="text" class="textbox" /></td>
+            </tr>
+            <tr>
+                <td class="label">Password</td>
+                <td><input name="txtPassword1" type="password" class="textbox" /></td>
+            </tr>
+            <tr>
+                <td class="label">Confirm password</td>
+                <td><input name="txtPassword2" type="password" class="textbox" /></td>
+            </tr>
+            <tr>
+                <td class="label">Gender</td>
+                <td>
+                    <input name="rdbGender" type="radio" value="Male" checked="checked" />Male
+                    <input name="rdbGender" type="radio" value="Female" />Female
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Phone</td>
+                <td><input name="txtPhone" type="text" class="textbox" /></td>
+            </tr>
+            <tr>
+                <td class="label">Email</td>
+                <td><input name="txtEmail" type="text" class="textbox" /></td>
+            </tr>
+            <tr>
+                <td class="label">Favourite</td>
+                <td>
+                    <input name="chkMusic" type="checkbox" value="amnhac" checked="checked" />Music
+                    <input name="chkReading" type="checkbox" value="docsach" checked="checked" />Reading
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Picture</td>
+                <td><input name="filPicture" type="file" size="22" /></td>
+            </tr>
+            <tr>
+                <td class="label">Description</td>
+                <td><textarea name="txtDescription" rows="5" class="textbox"></textarea></td>
+            </tr>
+            <tr>
+                <td class="label">Education level</td>
+                <td>
+                    <select name="sltEductionLevel" size="1" class="textbox">
+                    <option value="Aptech" selected="selected">Aptech</option>
+                    <option value="Arena">Arena</option>
+                    <option value="University">University</option>
+                    <option value="College">College</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Master">Master</option>
+                </select> </td>
+            </tr>
+            <tr>
+                <td class="label">Language</td>
+                <td><select name="sltLanguage" class="textbox" size="3" multiple="multiple">
+                    <option value="vi" selected="selected">Vietnamese</option>
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="jp">Japanese</option>
+                    <option value="cn">Chinese</option>
+                    <option value="kr">Korean</option>
+                </select> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><br />
+                    <input name="btnSubmit" type="submit" class="button" value="Register" />
+                    <input name="btnReset" type="reset" class="button" value="Reset" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function formValid() {
+  var f = document.frmRegister;
+  var phone_pattern = /^(0|\(\d{1,3}\)|\d{1,3})\d{7,10}$/;
+  var email_pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (f.txtUsername.value == "") {
+    alert("Username can't be empty");
+    f.txtUsername.focus();
+    return false;
+  }
+
+  if (f.txtPassword1.value.length < 6 || f.txtPassword1.value.length > 20) {
+    alert("Password length must be from 6 to 20 characters");
+    f.txtPassword1.focus();
+    return false;
+  }
+
+  if (f.txtPassword1.value != f.txtPassword2.value) {
+    alert("Password doesn't match");
+    f.txtPassword2.focus();
+    return false;
+  }
+
+  if (phone_pattern.test(f.txtPhone.value) == false) {
+    alert("Invalid phone number");
+    f.txtPhone.focus();
+    return false;
+  }
+  if (email_pattern.test(f.txtEmail.value) == false) {
+    alert("Invalid email address");
+    f.txtEmail.focus();
+    return false;
+  }
+
+  if (f.chkMusic.checked == false && f.chkReading.checked == false) {
+    alert("You must select at least one favourite");
+    f.chkMusic.focus();
+    return false;
+  }
+
+  if (f.filPicture.value == "") {
+    alert("You must select your picture");
+    f.filPicture.focus();
+    return false;
+  }
+
+  if (f.txtDescription.value == "") {
+    alert("You must enter description");
+    f.txtDescription.focus();
+    return false;
+  }
+
+  alert("All register information are correct.");
+  return true;
+}
+
+    </script>
+</body>
+
+</html>
