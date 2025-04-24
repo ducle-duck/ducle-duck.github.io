@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>e1</title>
+  </head>
+  <body>
+    <form action="#" id="form_main">
+      <input type="number" id="number1">
+      <br>
+      <button onclick="checkNumber();" on>Check</button>
+      <p id="result"></p>
+    </form>
+  <script language="javascript">
+  function checkNumber() {
+    var x = parseInt(document.getElementById("number1").value);
+    if (x % 2 === 0) {
+      // Method 1: create a new element and append it
+      var result = document.getElementById("result");
+      result.innerHTML = x + " is Even";
+     
+      // Method 2: use append
+      //document.getElementById("form_main").append(" " + x + " is Even");
+    } else {
+      // document.write(x + " is Odd")
+      var resultOdd = document.getElementById("result");
+      resultOdd.innerHTML = x + " is Odd";
+      
+     
+
+    }
+    
+  }
+  </script>
+</body>
+</html>
