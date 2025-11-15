@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hotel Admin - PMS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">🏨</div>
+        <div class="title">Hotel PMS</div>
+      </div>
+      <nav>
+        <ul>
+          <li class="nav-item active" data-page="dashboard">Dashboard</li>
+          <li class="nav-item" data-page="customers">Khách hàng</li>
+          <li class="nav-item" data-page="rooms">Phòng</li>
+          <li class="nav-item" data-page="bookings">Đặt phòng</li>
+          <li class="nav-item" data-page="services">Dịch vụ</li>
+          <li class="nav-item" data-page="invoices">Hóa đơn</li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">User: Admin</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <header class="topbar">
+        <div class="search-wrap">
+          <input id="globalSearch" placeholder="Tìm kiếm..." />
+        </div>
+        <div class="top-actions">
+          <button id="btnRefresh">⟳ Refresh</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <!-- DASHBOARD -->
+        <div class="page" id="dashboard">
+          <h2>Dashboard</h2>
+          <div class="cards">
+            <div class="card">
+              <div class="card-title">Khách hàng</div>
+              <div class="card-value" id="statCustomers">0</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Phòng</div>
+              <div class="card-value" id="statRooms">0</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Đặt phòng</div>
+              <div class="card-value" id="statBookings">0</div>
+            </div>
+            <div class="card">
+              <div class="card-title">Doanh thu (₫)</div>
+              <div class="card-value" id="statRevenue">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUSTOMERS -->
+        <div class="page hide" id="customers">
+          <div class="page-head">
+            <h2>Khách hàng</h2>
+            <div>
+              <button class="btn primary" id="addCustomerBtn">+ Thêm khách</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <input id="custSearch" placeholder="Tìm khách theo tên, phone..." />
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Tên</th><th>Phone</th><th>Email</th><th>Ngày sinh</th><th>Hành động</th></tr>
+              </thead>
+              <tbody id="custTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ROOMS -->
+        <div class="page hide" id="rooms">
+          <div class="page-head">
+            <h2>Phòng</h2>
+            <div>
+              <button class="btn primary" id="addRoomBtn">+ Thêm phòng</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <input id="roomSearch" placeholder="Tìm phòng theo số/loại..." />
+            <table>
+              <thead>
+                <tr><th>RoomID</th><th>Loại</th><th>Giá (₫)</th><th>Trạng thái</th><th>Hành động</th></tr>
+              </thead>
+              <tbody id="roomTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BOOKINGS -->
+        <div class="page hide" id="bookings">
+          <div class="page-head">
+            <h2>Đặt phòng</h2>
+            <div>
+              <button class="btn primary" id="addBookingBtn">+ Tạo đặt phòng</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <input id="bookingSearch" placeholder="Tìm đặt phòng theo ID/khách/phòng..." />
+            <table>
+              <thead>
+                <tr><th>BookingID</th><th>Khách</th><th>Phòng</th><th>CheckIn</th><th>CheckOut</th><th>Trạng thái</th><th>Hành động</th></tr>
+              </thead>
+              <tbody id="bookingTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="page hide" id="services">
+          <div class="page-head">
+            <h2>Dịch vụ</h2>
+            <div>
+              <button class="btn primary" id="addServiceBtn">+ Thêm dịch vụ</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <input id="serviceSearch" placeholder="Tìm dịch vụ..." />
+            <table>
+              <thead>
+                <tr><th>ServiceID</th><th>Tên</th><th>Giá (₫)</th><th>Hành động</th></tr>
+              </thead>
+              <tbody id="serviceTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- INVOICES -->
+        <div class="page hide" id="invoices">
+          <div class="page-head">
+            <h2>Hóa đơn</h2>
+          </div>
+
+          <div class="table-wrap">
+            <input id="invoiceSearch" placeholder="Tìm hóa đơn..." />
+            <table>
+              <thead>
+                <tr><th>InvoiceID</th><th>BookingID</th><th>Tổng (₫)</th><th>Phương thức</th><th>Ngày</th></tr>
+              </thead>
+              <tbody id="invoiceTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <div class="modal hide" id="modal">
+    <div class="modal-panel">
+      <div class="modal-header"><h3 id="modalTitle">Form</h3><button id="modalClose">✖</button></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer"><button class="btn" id="modalCancel">Hủy</button><button class="btn primary" id="modalSave">Lưu</button></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
