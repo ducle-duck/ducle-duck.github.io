@@ -389,3 +389,4 @@ $('#globalSearch').addEventListener('input', (e)=>{
 // initial render
 showPage('dashboard') 
 renderAll()
+console.log("Hotel PMS Loaded Successfully!");

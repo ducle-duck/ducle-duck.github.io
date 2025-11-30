@@ -1,0 +1,243 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f3f4f6;
+    color: #222;
+}
+
+/* ===== LAYOUT ===== */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 240px;
+    background: #1e293b;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    background: #334155;
+}
+
+.nav-item.active {
+    background: #0ea5e9;
+    color: white;
+}
+
+/* FOOTER */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 15px 20px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    height: 60px;
+    background: white;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.top-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.top-controls input {
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.top-controls button {
+    padding: 7px 15px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.content {
+    padding: 25px;
+}
+
+/* ===== PAGE ===== */
+.page {
+    display: block;
+}
+
+.page.hide {
+    display: none;
+}
+
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.card.full {
+    width: 100%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card-title {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.card-number {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ===== TABLE ===== */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.table th {
+    background: #f9fafb;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    padding: 8px 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.primary {
+    background: #0ea5e9;
+    color: white;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hide {
+    display: none;
+}
+
+.modal-panel {
+    background: white;
+    width: 420px;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 0.25s;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 15px;
+    background: #f3f4f6;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+#modalClose {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
